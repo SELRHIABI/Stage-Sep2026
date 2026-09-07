@@ -1,46 +1,36 @@
 [
     {
-        "file_path": "C:\\Users\\HP\\Downloads\\Correction_Officielle_Exam.pdf",
-        "file_name": "Correction_Officielle_Exam.pdf",
-        "file_size_bytes": 40106,
+        "file_path": "C:\\Users\\HP\\Downloads\\ED_ASMAA_NAIB.pdf",
+        "file_name": "ED_ASMAA_NAIB.pdf",
+        "file_size_bytes": 200737,
         "extension": ".pdf",
         "status": "SUCCESS",
-        "text": "CORRECTION DE L'ÉPREUVE D'ÉLECTRONIQUE NUMÉRIQUE\nExamen d'Évaluation Continue\nEXERCICE I : Algèbre de Boole et Simplification\n1. Simplification des fonctions logiques par l'algèbre de Boole\nFonction X :\nX = A̅•B•C + B•C̅ + B•C\nEn factorisant par B sur les deux derniers termes :\nX = A̅•B•C + B•(C̅ + C) = A̅•B•C + B•1 = A̅•B•C + B\nEn appliquant le théorème d'absorption étendu (B + A̅•B•C = B + A̅•C) :\nX = B + A̅•C\nFonction Y :\nY = (A + B + C)•D + A•D + B\nDéveloppement de l'expression :\nY = A•D + B•D + C•D + A•D + B\nPar idempotence (A•D + A•D = A•D) :\nY = B + B•D + A•D + C•D\nEn appliquant la règle d'absorption simple (B + B•D = B) :\nY = B + A•D + C•D\nPage 1 / 5\n2. Simplification de V par tableau de Karnaugh\nSoit l'expression : V = A•B•C•D̅ + A•B•C̅•D̅ + (A + B + C + D)̅\nPar application du théorème de De Morgan : (A + B + C + D)̅ = A̅•B̅•C̅•D̅.\nAB \\ CD 00 01 11 10\n00 1 0 0 0\n01 0 0 0 0\n11 1 0 0 1\n10 0 0 0 0\nAnalyse des groupements :\nUn groupe de 2 cases adjacentes sur la ligne AB = 11 (colonnes 00 et 10) ⇒ A•B•D̅\nUne case isolée en position 0000 ⇒ A̅•B̅•C̅•D̅\nV = A•B•D̅ + A̅•B̅•C̅•D̅\n3. Implémentation de V avec des portes NAND uniquement\nPar double inversion de la fonction minimale :\nV = [ (A•B•D̅)̅ • (A̅•B̅•C̅•D̅)̅ ]̅\n• \n• \nPage 2 / 5\nEXERCICE II : Synthèse par Multiplexeurs\nSoit la fonction logique définie par la table de vérité suivante :\nA B C X\n0 0 0 1\n0 0 1 0\n0 1 0 1\n0 1 1 1\n1 0 0 0\n1 0 1 0\n1 1 0 1\n1 1 1 1\n1. Implémentation avec un Multiplexeur 8:1\nLignes de sélection : Brancher S_2 = A, S_1 = B, S_0 = C.\nEntrées de données : Relier les entrées aux potentiels fixes définis par la colonne X : D_0=1, D_1=0,\nD_2=1, D_3=1, D_4=0, D_5=0, D_6=1, D_7=1.\n2. Implémentation avec un Multiplexeur 4:1\nLignes de sélection : Brancher S_1 = A, S_0 = B.\nEntrées de données en fonction de C :\nPour AB = 00 : X = C̅ ⇒ E_0 = C̅\nPour AB = 01 : X = 1 ⇒ E_1 = 1\nPour AB = 10 : X = 0 ⇒ E_2 = 0\nPour AB = 11 : X = 1 ⇒ E_3 = 1\n• \n• \n• \n• \n◦ \n◦ \n◦ \n◦ \nPage 3 / 5\nEXERCICE III : Logique Combinatoire - Contrôle d'Accès\n1. Table de vérité du système\nA B C F (Accès)\n0 0 0 0\n0 0 1 0\n0 1 0 1\n0 1 1 0\n1 0 0 0\n1 0 1 1\n1 1 0 1\n1 1 1 1\n2. Simplification par tableau de Karnaugh\nA \\ BC 00 01 11 10\n0 0 0 0 1\n1 0 1 1 1\nLes trois regroupements de deux cases donnent l'équation minimale :\nF = A•B + A•C + B•C̅\n3. Logigramme du circuit\n1 porte inverseuse (NOT) pour obtenir C̅.\n3 portes ET (AND) à deux entrées pour les termes produits.\n1 porte OU (OR) à trois entrées pour sommer les termes et générer la sortie F.\n• \n• \n• \nPage 4 / 5\nEXERCICE IV : Logique Séquentielle - Synthèse de Compteur\nSéquence demandée : 0 → 1 → 2 → 3 → 5 → 6 → 0. États inutilisés : 4 et 7.\n1. Table d'états du compteur avec bascules D\nÉtat Présent État Futur Entrées Bascules\nQ₂ Q₁ Q₀ Q₂⁺ Q₁⁺ Q₀⁺ D₂ D₁ D₀\n0 0 0 0 0 1 0 0 1\n0 0 1 0 1 0 0 1 0\n0 1 0 0 1 1 0 1 1\n0 1 1 1 0 1 1 0 1\n1 0 0 X X X X X X\n1 0 1 1 1 0 1 1 0\n1 1 0 0 0 0 0 0 0\n1 1 1 X X X X X X\n2. Équations d'excitation obtenues par Karnaugh\nPour D₂ : D₂ = Q₁•Q₀ + Q₂•Q₀ = Q₀•(Q₁ + Q₂)\nPour D₁ : D₁ = Q₁̅•Q₀ + Q₂̅•Q₁•Q₀̅\nPour D₀ : D₀ = Q₁̅•Q₀̅ + Q₂̅•Q₁\n3. Schéma logique du circuit\nLes  trois  bascules  de  type  D  partagent  le  même  signal  d'horloge  synchrone  (CLK).  Les  équations\ncombinatoires ci-dessus déterminent les connexions à appliquer sur chaque entrée de données D_i.\n• \n• \n• \nPage 5 / 5",
-        "preview": "CORRECTION DE L'ÉPREUVE D'ÉLECTRONIQUE NUMÉRIQUE\nExamen d'Évaluation Continue\nEXERCICE I : Algèbre de Boole et Simplification\n1. Simplification des fonctions logiques par l'algèbre de Boole\nFonction X",
-        "total_chars": 3333,
-        "pages_count": 5,
+        "text": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des Sciences de l’Ingénieur (EMSI)\nLivrable :Notebook Source (ED.ipynb)\nStatut technique :Validé sans erreur (Kernel stable)\n1 Introduction et Objectifs du Projet\nCe travail académique s’inscrit dans le cadre de l’évaluation technique des compétences en mani-\npulation de données complexes et en apprentissage supervisé. L’objectif fondamental réside dans\nla modélisation rigoureuse de la probabilité de survie des passagers du naufrage du Titanic.\nLe défi central de cette étude repose sur l’adoption absolue des bonnes pratiques de l’ingénierie\ndes données : l’isolation stricte des phases d’apprentissage pour éliminer toute fuite d’information\nindirecte (Data Leakage), et la construction d’une structure logicielle pérenne via des objets de\ntransformation modulaires.\n2 Stratégie de Partitionnement des Données\nAfin de prémunir les estimateurs contre tout biais de sur-apprentissage ou d’optimisme artificiel\nlors de l’imputation statistique, un cloisonnement étanche a été opéré à l’origine du traitement.\nLes variables purement identificatrices dépourvues de substance prédictive (PassengerId,Name,\netTicket) ont été préalablement éliminées.\nLe sous-ensemble des variables caractéristiquesX(réduit à 8 colonnes stratégiques) et le vecteur\ncibleyont été partitionnés en utilisant une approche stratifiée :\n—Ensemble d’entraînement (T rain Set) :Contient 712 lignes (représentant 80% de\nla matrice) dédiées exclusivement à l’ajustement des paramètres mathématiques et des\ntransformations.\n—Ensemble de validation (T est Set) :Contient 179 lignes (soit 20% de l’échantillon\nglobal) préservées vierges de tout contact algorithmique pour la notation finale.\n3 Architecture du Pipeline et Traitement Différencié\nEn exploitant l’API de Scikit-Learn, un formalisme basé sur le concept deColumn Transformer\na été développé, permettant l’application en parallèle de traitements mathématiques découplés\n1\nselon le type inhérent des données :\n3.1 Sous-pipeline Numérique (Variables : Pclass, Age, SibSp, Parch, Fare)\n— Les données numériques ont subi une imputation univariée via lavaleur médiane locale,\ncalculée sur le seul ensemble d’entraînement, assurant une bonne résilience vis-à-vis des\nvaleurs aberrantes de la colonneFare.\n— Suite à cela, un recentrage et une réduction d’échelle ont été appliqués à l’aide d’un\nopérateur de standardisation, forçant chaque composante à adopter une moyenneµ= 0\net une varianceσ2 = 1.\n3.2 Sous-pipeline Catégoriel (Variables : Sex, Cabin, Embarked)\n— Uneimputationparlamodalité la plus fréquente (mode)aétéordonnéepourcombler\nles valeurs manquantes sans dénaturer la sémantique de l’information.\n— Les vecteurs nominaux résultants ont été projetés dans un espace vectoriel binaire à l’aide\nd’un encodage One-Hot (OneHotEncoder).\n— L’optiondegestiondesmodalitésinconnuesaétéparamétréepourignorerdynamiquement\ntoute entrée inédite survenant au cours de la phase de test, protégeant le système contre\nles exceptions d’exécution.\n4 Modélisation Linéaire et Métriques de Performance\nConformément à la feuille de route visant la robustesse et la sobriété algorithmique, le modèle de\nRégression Logistiquea été retenu et encapsulé à la suite du processeur géométrique. Après\nconvergence de la fonction de coût, les résultats sur l’échantillon indépendant de test indiquent\nuneexcellentecapacitéprédictiveavecuneexactitude globale (Accuracy Score) de 82.12%.\nLe comportement détaillé de l’estimateur est formalisé à travers le tableau récapitulatif ci-\ndessous :\nTable 1– Mesures d’évaluation du modèle de Régression Logistique\nClasse Prédite (Statut) Précision Rappel Score F1 Support Échantillon\nClasse 0 (Non-Survivants) 0.84 0.88 0.86 110 passagers\nClasse 1 (Survivants) 0.79 0.72 0.76 69 passagers\nMoyenne Pondérée 0.82 0.82 0.82 179 passagers\nL’analyse croisée démontre que le modèle offre une excellente fiabilité sur la prédiction de la\nclasse majoritaire (non-survie) avec un score F1 culminant à 0.86[cite : 45]. Pour les survivants,\nla précision se maintient à un niveau tout à fait robuste de 79%, minimisant le taux de faux\npositifs.\n5 Conclusion\nEn conclusion, l’intégralité des contraintes de l’étude a été satisfaite de manière rigoureuse. L’im-\nplémentation logicielle au sein de l’environnement Jupyter a démontré qu’en dépit des contraintes\n2\ninitiales d’affichage machine, le recours à un formalisme de pipeline strict préserve à la fois l’in-\ntégrité scientifique des métriques et la propreté du code source, jetant les bases solides d’une\nméthodologie d’analyse transférable à des problématiques de plus grande envergure.\n3",
+        "preview": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des S",
+        "total_chars": 4769,
+        "pages_count": 3,
         "pages_detail": [
             {
                 "page_number": 1,
-                "char_count": 666,
-                "preview": "CORRECTION DE L'ÉPREUVE D'ÉLECTRONIQUE NUMÉRIQUE\nExamen d'Évaluation Continue\nEXERCICE I : Algèbre de Boole et Simplification\n1. Simplification des fonctions logiques par l'algèbre de Boole\nFonction X"
+                "char_count": 2095,
+                "preview": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des S"
             },
             {
                 "page_number": 2,
-                "char_count": 584,
-                "preview": "2. Simplification de V par tableau de Karnaugh\nSoit l'expression : V = A•B•C•D̅ + A•B•C̅•D̅ + (A + B + C + D)̅\nPar application du théorème de De Morgan : (A + B + C + D)̅ = A̅•B̅•C̅•D̅.\nAB \\ CD 00 01 "
+                "char_count": 2389,
+                "preview": "selon le type inhérent des données :\n3.1 Sous-pipeline Numérique (Variables : Pclass, Age, SibSp, Parch, Fare)\n— Les données numériques ont subi une imputation univariée via lavaleur médiane locale,\nc"
             },
             {
                 "page_number": 3,
-                "char_count": 715,
-                "preview": "EXERCICE II : Synthèse par Multiplexeurs\nSoit la fonction logique définie par la table de vérité suivante :\nA B C X\n0 0 0 1\n0 0 1 0\n0 1 0 1\n0 1 1 1\n1 0 0 0\n1 0 1 0\n1 1 0 1\n1 1 1 1\n1. Implémentation av"
-            },
-            {
-                "page_number": 4,
-                "char_count": 559,
-                "preview": "EXERCICE III : Logique Combinatoire - Contrôle d'Accès\n1. Table de vérité du système\nA B C F (Accès)\n0 0 0 0\n0 0 1 0\n0 1 0 1\n0 1 1 0\n1 0 0 0\n1 0 1 1\n1 1 0 1\n1 1 1 1\n2. Simplification par tableau de Ka"
-            },
-            {
-                "page_number": 5,
-                "char_count": 805,
-                "preview": "EXERCICE IV : Logique Séquentielle - Synthèse de Compteur\nSéquence demandée : 0 → 1 → 2 → 3 → 5 → 6 → 0. États inutilisés : 4 et 7.\n1. Table d'états du compteur avec bascules D\nÉtat Présent État Futur"
+                "char_count": 283,
+                "preview": "initiales d’affichage machine, le recours à un formalisme de pipeline strict préserve à la fois l’in-\ntégrité scientifique des métriques et la propreté du code source, jetant les bases solides d’une\nm"
             }
         ],
-        "quality_score": 88.9,
+        "quality_score": 96.14,
         "quality_label": "HIGH_QUALITY",
         "error_message": null,
         "metadata": {
-            "pdf_producer": "WeasyPrint 62.3"
+            "pdf_producer": "pdfTeX-1.40.27"
         }
     }
 ]
