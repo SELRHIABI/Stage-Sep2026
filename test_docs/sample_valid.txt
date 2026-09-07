@@ -1,0 +1,2 @@
+DocumentExtractor - Rapport d'Ingestion Resiliente.
+Ce document contient du texte lisible et structuré à 100%.
