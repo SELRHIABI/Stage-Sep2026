@@ -1,36 +1,98 @@
 [
-    {
-        "file_path": "C:\\Users\\HP\\Downloads\\ED_ASMAA_NAIB.pdf",
-        "file_name": "ED_ASMAA_NAIB.pdf",
-        "file_size_bytes": 200737,
-        "extension": ".pdf",
-        "status": "SUCCESS",
-        "text": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des Sciences de l’Ingénieur (EMSI)\nLivrable :Notebook Source (ED.ipynb)\nStatut technique :Validé sans erreur (Kernel stable)\n1 Introduction et Objectifs du Projet\nCe travail académique s’inscrit dans le cadre de l’évaluation technique des compétences en mani-\npulation de données complexes et en apprentissage supervisé. L’objectif fondamental réside dans\nla modélisation rigoureuse de la probabilité de survie des passagers du naufrage du Titanic.\nLe défi central de cette étude repose sur l’adoption absolue des bonnes pratiques de l’ingénierie\ndes données : l’isolation stricte des phases d’apprentissage pour éliminer toute fuite d’information\nindirecte (Data Leakage), et la construction d’une structure logicielle pérenne via des objets de\ntransformation modulaires.\n2 Stratégie de Partitionnement des Données\nAfin de prémunir les estimateurs contre tout biais de sur-apprentissage ou d’optimisme artificiel\nlors de l’imputation statistique, un cloisonnement étanche a été opéré à l’origine du traitement.\nLes variables purement identificatrices dépourvues de substance prédictive (PassengerId,Name,\netTicket) ont été préalablement éliminées.\nLe sous-ensemble des variables caractéristiquesX(réduit à 8 colonnes stratégiques) et le vecteur\ncibleyont été partitionnés en utilisant une approche stratifiée :\n—Ensemble d’entraînement (T rain Set) :Contient 712 lignes (représentant 80% de\nla matrice) dédiées exclusivement à l’ajustement des paramètres mathématiques et des\ntransformations.\n—Ensemble de validation (T est Set) :Contient 179 lignes (soit 20% de l’échantillon\nglobal) préservées vierges de tout contact algorithmique pour la notation finale.\n3 Architecture du Pipeline et Traitement Différencié\nEn exploitant l’API de Scikit-Learn, un formalisme basé sur le concept deColumn Transformer\na été développé, permettant l’application en parallèle de traitements mathématiques découplés\n1\nselon le type inhérent des données :\n3.1 Sous-pipeline Numérique (Variables : Pclass, Age, SibSp, Parch, Fare)\n— Les données numériques ont subi une imputation univariée via lavaleur médiane locale,\ncalculée sur le seul ensemble d’entraînement, assurant une bonne résilience vis-à-vis des\nvaleurs aberrantes de la colonneFare.\n— Suite à cela, un recentrage et une réduction d’échelle ont été appliqués à l’aide d’un\nopérateur de standardisation, forçant chaque composante à adopter une moyenneµ= 0\net une varianceσ2 = 1.\n3.2 Sous-pipeline Catégoriel (Variables : Sex, Cabin, Embarked)\n— Uneimputationparlamodalité la plus fréquente (mode)aétéordonnéepourcombler\nles valeurs manquantes sans dénaturer la sémantique de l’information.\n— Les vecteurs nominaux résultants ont été projetés dans un espace vectoriel binaire à l’aide\nd’un encodage One-Hot (OneHotEncoder).\n— L’optiondegestiondesmodalitésinconnuesaétéparamétréepourignorerdynamiquement\ntoute entrée inédite survenant au cours de la phase de test, protégeant le système contre\nles exceptions d’exécution.\n4 Modélisation Linéaire et Métriques de Performance\nConformément à la feuille de route visant la robustesse et la sobriété algorithmique, le modèle de\nRégression Logistiquea été retenu et encapsulé à la suite du processeur géométrique. Après\nconvergence de la fonction de coût, les résultats sur l’échantillon indépendant de test indiquent\nuneexcellentecapacitéprédictiveavecuneexactitude globale (Accuracy Score) de 82.12%.\nLe comportement détaillé de l’estimateur est formalisé à travers le tableau récapitulatif ci-\ndessous :\nTable 1– Mesures d’évaluation du modèle de Régression Logistique\nClasse Prédite (Statut) Précision Rappel Score F1 Support Échantillon\nClasse 0 (Non-Survivants) 0.84 0.88 0.86 110 passagers\nClasse 1 (Survivants) 0.79 0.72 0.76 69 passagers\nMoyenne Pondérée 0.82 0.82 0.82 179 passagers\nL’analyse croisée démontre que le modèle offre une excellente fiabilité sur la prédiction de la\nclasse majoritaire (non-survie) avec un score F1 culminant à 0.86[cite : 45]. Pour les survivants,\nla précision se maintient à un niveau tout à fait robuste de 79%, minimisant le taux de faux\npositifs.\n5 Conclusion\nEn conclusion, l’intégralité des contraintes de l’étude a été satisfaite de manière rigoureuse. L’im-\nplémentation logicielle au sein de l’environnement Jupyter a démontré qu’en dépit des contraintes\n2\ninitiales d’affichage machine, le recours à un formalisme de pipeline strict préserve à la fois l’in-\ntégrité scientifique des métriques et la propreté du code source, jetant les bases solides d’une\nméthodologie d’analyse transférable à des problématiques de plus grande envergure.\n3",
-        "preview": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des S",
-        "total_chars": 4769,
-        "pages_count": 3,
-        "pages_detail": [
-            {
-                "page_number": 1,
-                "char_count": 2095,
-                "preview": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des S"
-            },
-            {
-                "page_number": 2,
-                "char_count": 2389,
-                "preview": "selon le type inhérent des données :\n3.1 Sous-pipeline Numérique (Variables : Pclass, Age, SibSp, Parch, Fare)\n— Les données numériques ont subi une imputation univariée via lavaleur médiane locale,\nc"
-            },
-            {
-                "page_number": 3,
-                "char_count": 283,
-                "preview": "initiales d’affichage machine, le recours à un formalisme de pipeline strict préserve à la fois l’in-\ntégrité scientifique des métriques et la propreté du code source, jetant les bases solides d’une\nm"
-            }
-        ],
-        "quality_score": 96.14,
-        "quality_label": "HIGH_QUALITY",
-        "error_message": null,
-        "metadata": {
-            "pdf_producer": "pdfTeX-1.40.27"
-        }
+  {
+    "id": "HPS.pdf_chunk_0",
+    "content": "Chapitre 1\nEnvironnement de stage\n1.1 Introduction\nLe pr´esent rapport s’inscrit dans le cadre de mon stage effectu ´e au sein de l’entrepriseHPS\n(Hightech Payment Systems), un acteur majeur dans le domaine des solutions de paiement\n´electronique. Ce stage a ´et´e l’occasion de d´ecouvrir l’univers des technologies de paiement, d’ap-\nprofondir mes connaissances sur les standards internationaux, et de contribuer `a la mise en place\nd’outils d’analyse et de validation des patchs et traces bancaires.\nL ’objectif de ce premier chapitre est de pr´esenter l’entreprise d’accueil, son histoire, ses acti-\nvit´es, ainsi que son rˆole dans l’´ecosyst`eme mondial des paiements. Une attention particuli`ere sera\nport´ee `a sa filiale marocaine, o` u s’est d´eroul´ee l’exp´erience de stage.\n1.2 Pr ´esent",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 0
     }
+  },
+  {
+    "id": "HPS.pdf_chunk_1",
+    "content": "re sera\nport´ee `a sa filiale marocaine, o` u s’est d´eroul´ee l’exp´erience de stage.\n1.2 Pr ´esentation de l’organisme d’accueil\nPr´esentation de l’organisme d’accueil\nFond´ee en1995par un groupe d’experts marocains en mon ´etique,HPS (Hightech Payment\nSystems)est une entreprise marocaine de renomm ´ee internationale, sp´ecialis´ee dans les solutions\nde paiement ´electronique. Son si`ege social est situ´e `aCasablanca, Maroc, et elle est dirig ´ee par\nAbdeslam Alaoui Smaili.\nAujourd’hui, HPS est consid´er´ee comme unleader mondialdans le traitement des paiements,\navec des solutions innovantes et s ´ecuris´ees utilis ´ees dans plus de90 payspar des banques,\ninstitutions financi`eres et grands commerc ¸ants.\n1\nCHAPITRE 1. ENVIRONNEMENT DE STAGE2\nFigure 1.1: Fiche d’identit ´e HPS Maroc\n1.3",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 1
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_2",
+    "content": "ds commerc ¸ants.\n1\nCHAPITRE 1. ENVIRONNEMENT DE STAGE2\nFigure 1.1: Fiche d’identit ´e HPS Maroc\n1.3 Historique\nDepuis sa cr ´eation, HPS a toujours eu pour ambition de fournir des solutions de paiement\ninnovantes, s´ecuris´ees et adapt´ees aux besoins des institutions financi`eres.\n•1995 : Cr ´eation de HPS `a Casablanca.\n•1999 : Lancement de PowerCARD, une plateforme int ´egr´ee de gestion des cartes bancaires et\ntransactions, qui a marqu´e le d´ebut de l’expansion internationale.\n•Ann ´ees 2000-2010 : Diversification des solutions vers le paiement mobile, en ligne, et les\nservices de gestion des risques.\n•Aujourd’hui : Pr ´esence mondiale dans plus de 90 pays, avec une client`ele compos´ee de banques,\nfintechs et op´erateurs de paiement.\n1.4 Pr ´esence internationale\nAvec des bureaux im",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 2
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_3",
+    "content": "e de banques,\nfintechs et op´erateurs de paiement.\n1.4 Pr ´esence internationale\nAvec des bureaux implant ´es enAfrique, Europe, Moyen-Orient, Asie et Am ´erique du\nNord, HPS dispose d’un rayonnement international. Cette implantation strat´egique lui permet de\ncomprendre les sp´ecificit´es locales et d’offrir des solutions adapt´ees `a chaque march´e.\nCHAPITRE 1. ENVIRONNEMENT DE STAGE3\nFigure 1.2: Pr ´esence `a l’international\n1.5 Missions principales\nHPS se d ´efinit comme la technologie invisible qui permet aux paiements d’ ˆetre simples,\ntransparents et s´ecuris´es. Ses missions principales sont :\n•D ´evelopper et fournir des solutions de paiement ´electronique omnicanal `a forte valeur ajout´ee.\n•Garantir l’ex ´ecution fluide et s ´ecuris´ee des transactions, quels que soient les cana",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 3
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_4",
+    "content": "ajout´ee.\n•Garantir l’ex ´ecution fluide et s ´ecuris´ee des transactions, quels que soient les canaux ou les\nsecteurs d’activit´e.\n•Enrichir continuellement sa suite PowerCARD, d ´eploy´ee dans le monde entier\n1.6 Activit ´es principales\nFigure 1.3: Activit ´es d’HPS\nCHAPITRE 1. ENVIRONNEMENT DE STAGE4\nLes activit´es de HPS s’articulent autour de trois grands axes :\nSolutions: Gestion omnicanal des paiements ´electroniques `a travers la suite PowerCARD (en\nmode on-premise).\nProcessing: Gestion du switching national au Maroc et traitement des transactions via Po-\nwerCARD en mode SaaS.\nServices: Tests, qualification logicielle et accompagnement `a la maˆıtrise d’ouvrage dans les\nprojets de transformation digitale.\n1.7 Processus d’une transaction de paiement ´electronique\nLes principaux acte",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 4
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_5",
+    "content": "ansformation digitale.\n1.7 Processus d’une transaction de paiement ´electronique\nLes principaux acteurs intervenants lors d’une transaction de paiement ´electronique sont les\nsuivants :\n•Le porteur: il s’agit de la personne utilisant la carte bancaire.\n•Le commerc ¸ant: Il s’agit du commerc ¸ant qui accepte la carte comme moyen de paiement. Le\ncommerc ¸ant peutˆetre un commerc ¸ant classique ou virtuel (E commerce). Les DAB ou GAB\nsont aussi assimil´es `a des commerc ¸ants.\n•L’ ´emetteur: qui est l’organisme financier qui met `a la disposition de son client (le porteur) un\nmoyen de paiement (la carte) durant une p ´eriode bien d ´efinie et qui garantit le r `eglement des\nd´epenses r´ealis´ees par ladite carte dans le cadre d’une r´eglementation.\n•L’acqu ´ereur: la banque du commerc ¸ant qu",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 5
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_6",
+    "content": "s par ladite carte dans le cadre d’une r´eglementation.\n•L’acqu ´ereur: la banque du commerc ¸ant qui traite les transactions.\n•L’organisme d’interchange: qui assure l’interop ´erabilit´e entre ´emetteurs et acqu´ereurs.\nFigure 1.4: D ´eroulement d’une transaction\nCHAPITRE 1. ENVIRONNEMENT DE STAGE5\n1.8 Le produit PowerCARD\nLe progiciel PowerCARD d ´evelopp´e par HPS est une solution de paiement ´electronique\nmodulaire ´evolu´ee, hautement s ´ecuris´ee et couvrant l’int ´egralit´e de la cha ˆıne de traitement les\ntransactions financi`eres li´ees au paiement ´electronique.\nCette solution permet d’assurer le pilotage des terminaux et guichets automatiques. Elle g `ere\nnotamment les fonctions de s´ecurit´e et de v´erification, la communication avec les moyens d’acqui-\nsition (TPE, GAB, Intern",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 6
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_7",
+    "content": "e s´ecurit´e et de v´erification, la communication avec les moyens d’acqui-\nsition (TPE, GAB, Internet, etc.), la collecte et l’autorisation des transactions ainsi que la gestion\ndes commerc ¸ants et des parcs de terminaux d’acquisition, etc.\nDans le cadre du traitement back-office, PowerCARD permet la gestion de l’´emission de tout\ntype de cartes (cr ´edit, d´ebit, pr´epay´ee, fid´elit´e, etc.), la gestion de la personnalisation des cartes,\nla gestion de l’acquisition par les commerc ¸ants, la compensation (nationale et internationale), la\ngestion des litiges, le reporting, l’alimentation de la comptabilit´e des ´emetteurs et acqu´ereurs, etc.\nFigure 1.5: Modules de PowerCARD\n1.9 Organigramme de l’entreprise :\nEn 2021, le Groupe HPS a r´eorganis´e sa structure pour accompagner son expansi",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 7
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_8",
+    "content": "me de l’entreprise :\nEn 2021, le Groupe HPS a r´eorganis´e sa structure pour accompagner son expansion internatio-\nnale. Cette nouvelle organisation donne plus d’autonomie aux entit´es du Groupe tout en favorisant\nles synergies. Deux axes majeurs sont mis en avant : le soutien aux clients et le d ´eveloppement\ncommercial via l’entit ´e Market, ainsi que l’int ´egration et l’ ´evolution des solutions PowerCARD\nCHAPITRE 1. ENVIRONNEMENT DE STAGE6\npar l’entit´e Software Factory.\nLe Groupe a aussi structur´e ses activit´es de paiement en cr´eant l’entit´e Payments Services pour\ng´erer les transactions et les services associ ´es, et une entit´e d´edi´ee au Switching pour le paiement\n´electronique national. L ’entit´e Corporate Services a vu son r ˆole ´elargi, incluant la croissance\nexterne et",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 8
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_9",
+    "content": "national. L ’entit´e Corporate Services a vu son r ˆole ´elargi, incluant la croissance\nexterne et les enjeux RSE. La mise en œuvre de la strat ´egie et le suivi de la performance sont\nassur´es par le Comit´e Ex´ecutif, avec l’appui du Comit´e Transformation.\nFigure 1.6: Organigramme d’HPS\n1.10 Direction Payment Services\nCe stage se d´eroule sous la direction du d´epartement ’Payment Services’ de l’entreprise, lequel\nest responsable de la mise en œuvre et du support du mod`ele SaaS (Software as a Service) destin´e\n`a permettre aux clients de g ´erer leurs op ´erations de paiement de mani `ere flexible, s ´ecuris´ee et\n´evolutive. Le d´epartement joue un rˆole cl´e dans l’optimisation des services de paiement offerts aux\nclients gr ˆace `a l’architecture cloud et aux solutions adapt ´ees a",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 9
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_10",
+    "content": "rvices de paiement offerts aux\nclients gr ˆace `a l’architecture cloud et aux solutions adapt ´ees aux besoins sp ´ecifiques de chaque\ninstitution. Parmi les avantages de ce mod`ele on trouve :\n•R ´eduction des coˆ uts d’infrastructure : Les clients n’ont pas besoin d’investir dans des serveurs\nou des centres de donn´ees.\n•Mises `a jour automatiques : Les clients b´en´eficient des derni`eres fonctionnalit´es et am´eliorations\nsans intervention manuelle.\n•Scalabilit ´e : La plateforme peut facilement s’adapter`a la croissance des volumes de transactions.\n•S ´ecurit´e renforc ´ee : HPS met en place des mesures de s ´ecurit´e avanc ´ees pour prot ´eger les\ndonn´ees sensibles.\n1.11 Conclusion\nCe chapitre a fourni une vue d’ensemble compl`ete de l’environnement de stage, en pr´esentant\nl’organi",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 10
+    }
+  },
+  {
+    "id": "HPS.pdf_chunk_11",
+    "content": "chapitre a fourni une vue d’ensemble compl`ete de l’environnement de stage, en pr´esentant\nl’organisme d’accueil, son historique, ses missions, ses activit´es principales, et sa pr´esence inter-\nnationale. Ces ´el´ements ont permis de comprendre le cadre dans lequel s’est d ´eroul´e le stage et\nles aspects essentiels de l’entreprise HPS.",
+    "metadata": {
+      "source_document": "HPS.pdf",
+      "chunk_index": 11
+    }
+  }
 ]
