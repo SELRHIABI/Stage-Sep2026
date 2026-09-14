@@ -1,98 +1,71 @@
 [
-  {
-    "id": "HPS.pdf_chunk_0",
-    "content": "Chapitre 1\nEnvironnement de stage\n1.1 Introduction\nLe pr´esent rapport s’inscrit dans le cadre de mon stage effectu ´e au sein de l’entrepriseHPS\n(Hightech Payment Systems), un acteur majeur dans le domaine des solutions de paiement\n´electronique. Ce stage a ´et´e l’occasion de d´ecouvrir l’univers des technologies de paiement, d’ap-\nprofondir mes connaissances sur les standards internationaux, et de contribuer `a la mise en place\nd’outils d’analyse et de validation des patchs et traces bancaires.\nL ’objectif de ce premier chapitre est de pr´esenter l’entreprise d’accueil, son histoire, ses acti-\nvit´es, ainsi que son rˆole dans l’´ecosyst`eme mondial des paiements. Une attention particuli`ere sera\nport´ee `a sa filiale marocaine, o` u s’est d´eroul´ee l’exp´erience de stage.\n1.2 Pr ´esent",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 0
+    {
+        "file_path": "C:\\Users\\HP\\Downloads\\test2.pdf",
+        "file_name": "test2.pdf",
+        "file_size_bytes": 46760,
+        "extension": ".pdf",
+        "status": "SUCCESS",
+        "text": "Page 1 : Introduction au RAG et Enjeux\nLe Retrieval-Augmented Generation (RAG) combine la recherche d’information et la\ng´ en´ eration de texte par LLM. Cette approche permet de pallier les limitations des mod` eles\npr´ e-entraˆ ın´ es, telles que les hallucinations et l’obsolescence des connaissances. En connectant\nun LLM ` a une base de connaissances externe, le syst` eme peut interroger dynamiquement\ndes documents propri´ etaires et formuler des r´ eponses ancr´ ees et v´ erifiables.\n1\nPage 2 : Strat´ egies de Chunking Avanc´ ees\nLe d´ ecoupage du texte (chunking) est une ´ etape critique de tout pipeline RAG. Un\nmauvais d´ ecoupage peut fragmenter le contexte s´ emantique ou fusionner des informations\nind´ ependantes. Les approches modernes privil´ egient un d´ ecoupage respectant la structure\nlogique des documents (paragraphes, sections, ou pages) avec un chevauchement (overlap)\ncontrˆ ol´ e pour pr´ eserver la continuit´ e du flux informationnel.\n2\nPage 3 : Embeddings et Mod` eles Vectoriels\nLa vectorisation transforme les fragments de texte en vecteurs denses dans un espace\nvectoriel ` a haute dimension. Des mod` eles comme all-MiniLM-L6-v2 permettent de capturer\nla similarit´ e s´ emantique entre les requˆ etes des utilisateurs et les documents index´ es. Le choix\ndu mod` ele d’embedding conditionne directement la qualit´ e du rappel et la robustesse face\naux reformulations complexes.\n3\nPage 4 : Indexation et Bases de Donn´ ees Vectorielles\nLes bases de donn´ ees vectorielles, telles que ChromaDB ou FAISS, stockent les embed-\ndings et permettent des recherches de plus proches voisins ` a grande ´ echelle. L’utilisation\nde m´ etriques de distance adapt´ ees, comme la distance euclidienne ou la similarit´ e cosinus,\ngarantit une recherche performante. L’association de m´ etadonn´ ees riches (comme le num´ ero\nde page exact) est indispensable pour assurer la tra¸ cabilit´ e des sources.\n4\nPage 5 : Strat´ egies de R´ ecup´ eration (Dense vs Hybride)\nLa recherche dense bas´ ee sur les embeddings excelle pour capturer le sens global des\nrequˆ etes s´ emantiques. Cependant, elle peut ´ echouer sur des mots-cl´ es stricts ou des identi-\nfiants techniques. C’est pourquoi l’approche hybride, combinant recherche dense et recherche\nlexicale (BM25), s’impose pour maximiser la robustesse de la phase de r´ ecup´ eration.\n5\nPage 6 : R´ e-ordonnancement (Reranking) et Pr´ ecision\nLe reranking intervient apr` es la r´ ecup´ eration initiale pour affiner le classement des frag-\nments avant l’envoi au LLM. Des mod` eles de type cross-encoder ´ evaluent finement la perti-\nnence crois´ ee entre la requˆ ete et chaque chunk r´ ecup´ er´ e. Cette ´ etape ´ elimine le bruit, r´ eduit\nla taille du contexte inject´ e et am´ eliore drastiquement la pr´ ecision globale de la r´ eponse\ng´ en´ er´ ee.\n6\nPage 7 : Architectures Agentiques et LangGraph\nLes architectures RAG modernes ´ evoluent vers des agents autonomes capables de plani-\nfier, d’ex´ ecuter des recherches it´ eratives et d’´ evaluer la qualit´ e des documents trouv´ es. Des\nframeworks comme LangGraph permettent de structurer ces flux complexes sous forme de\ngraphes d’´ etat d´ ecisionnels, autorisant des boucles de correction et de validation dynamique.\n7\nPage 8 : Optimisation des LLMs Locaux\nL’ex´ ecution de LLMs en local via des outils comme Ollama (avec des mod` eles tels que\nDeepSeek-R1 ou Llama 3) garantit la confidentialit´ e des donn´ ees et l’ind´ ependance vis-` a-vis\ndes API cloud. L’optimisation des param` etres d’inf´ erence, de la temp´ erature et de la taille\ndu contexte permet d’atteindre un ´ equilibre optimal entre vitesse de g´ en´ eration et rigueur\nlogique.\n8\nPage 9 : ´Evaluation des Pipelines RAG\nMesurer la performance d’un syst` eme RAG n´ ecessite des frameworks d’´ evaluation ri-\ngoureux comme RAGas. Les m´ etriques cl´ es incluent la pertinence du contexte r´ ecup´ er´ e, la\nfid´ elit´ e de la r´ eponse par rapport aux sources, et la pertinence de la r´ eponse par rapport\n` a la requˆ ete initiale. Ces indicateurs permettent d’identifier les goulets d’´ etranglement du\npipeline.\n9\nPage 10 : Conclusion et Perspectives en Production\nLe d´ eploiement d’un syst` eme RAG en production requiert une surveillance continue de\nla qualit´ e d’indexation, de la latence de r´ ecup´ eration et de la pertinence des r´ eponses.\nL’´ evolution constante des architectures agentiques et des mod` eles multimodaux ouvre la\nvoie ` a des assistants documentaires toujours plus autonomes, pr´ ecis et adapt´ es aux environ-\nnements m´ etiers complexes.\n10",
+        "preview": "Page 1 : Introduction au RAG et Enjeux\nLe Retrieval-Augmented Generation (RAG) combine la recherche d’information et la\ng´ en´ eration de texte par LLM. Cette approche permet de pallier les limitation",
+        "total_chars": 4578,
+        "pages_count": 10,
+        "pages_detail": [
+            {
+                "page_number": 1,
+                "char_count": 493,
+                "preview": "Page 1 : Introduction au RAG et Enjeux\nLe Retrieval-Augmented Generation (RAG) combine la recherche d’information et la\ng´ en´ eration de texte par LLM. Cette approche permet de pallier les limitation"
+            },
+            {
+                "page_number": 2,
+                "char_count": 474,
+                "preview": "Page 2 : Strat´ egies de Chunking Avanc´ ees\nLe d´ ecoupage du texte (chunking) est une ´ etape critique de tout pipeline RAG. Un\nmauvais d´ ecoupage peut fragmenter le contexte s´ emantique ou fusion"
+            },
+            {
+                "page_number": 3,
+                "char_count": 448,
+                "preview": "Page 3 : Embeddings et Mod` eles Vectoriels\nLa vectorisation transforme les fragments de texte en vecteurs denses dans un espace\nvectoriel ` a haute dimension. Des mod` eles comme all-MiniLM-L6-v2 per"
+            },
+            {
+                "page_number": 4,
+                "char_count": 508,
+                "preview": "Page 4 : Indexation et Bases de Donn´ ees Vectorielles\nLes bases de donn´ ees vectorielles, telles que ChromaDB ou FAISS, stockent les embed-\ndings et permettent des recherches de plus proches voisins"
+            },
+            {
+                "page_number": 5,
+                "char_count": 430,
+                "preview": "Page 5 : Strat´ egies de R´ ecup´ eration (Dense vs Hybride)\nLa recherche dense bas´ ee sur les embeddings excelle pour capturer le sens global des\nrequˆ etes s´ emantiques. Cependant, elle peut ´ ech"
+            },
+            {
+                "page_number": 6,
+                "char_count": 473,
+                "preview": "Page 6 : R´ e-ordonnancement (Reranking) et Pr´ ecision\nLe reranking intervient apr` es la r´ ecup´ eration initiale pour affiner le classement des frag-\nments avant l’envoi au LLM. Des mod` eles de t"
+            },
+            {
+                "page_number": 7,
+                "char_count": 422,
+                "preview": "Page 7 : Architectures Agentiques et LangGraph\nLes architectures RAG modernes ´ evoluent vers des agents autonomes capables de plani-\nfier, d’ex´ ecuter des recherches it´ eratives et d’´ evaluer la q"
+            },
+            {
+                "page_number": 8,
+                "char_count": 431,
+                "preview": "Page 8 : Optimisation des LLMs Locaux\nL’ex´ ecution de LLMs en local via des outils comme Ollama (avec des mod` eles tels que\nDeepSeek-R1 ou Llama 3) garantit la confidentialit´ e des donn´ ees et l’i"
+            },
+            {
+                "page_number": 9,
+                "char_count": 434,
+                "preview": "Page 9 : ´Evaluation des Pipelines RAG\nMesurer la performance d’un syst` eme RAG n´ ecessite des frameworks d’´ evaluation ri-\ngoureux comme RAGas. Les m´ etriques cl´ es incluent la pertinence du con"
+            },
+            {
+                "page_number": 10,
+                "char_count": 456,
+                "preview": "Page 10 : Conclusion et Perspectives en Production\nLe d´ eploiement d’un syst` eme RAG en production requiert une surveillance continue de\nla qualit´ e d’indexation, de la latence de r´ ecup´ eration "
+            }
+        ],
+        "quality_score": 94.84,
+        "quality_label": "HIGH_QUALITY",
+        "error_message": null,
+        "metadata": {
+            "pdf_producer": "pdfTeX-1.40.29"
+        }
     }
-  },
-  {
-    "id": "HPS.pdf_chunk_1",
-    "content": "re sera\nport´ee `a sa filiale marocaine, o` u s’est d´eroul´ee l’exp´erience de stage.\n1.2 Pr ´esentation de l’organisme d’accueil\nPr´esentation de l’organisme d’accueil\nFond´ee en1995par un groupe d’experts marocains en mon ´etique,HPS (Hightech Payment\nSystems)est une entreprise marocaine de renomm ´ee internationale, sp´ecialis´ee dans les solutions\nde paiement ´electronique. Son si`ege social est situ´e `aCasablanca, Maroc, et elle est dirig ´ee par\nAbdeslam Alaoui Smaili.\nAujourd’hui, HPS est consid´er´ee comme unleader mondialdans le traitement des paiements,\navec des solutions innovantes et s ´ecuris´ees utilis ´ees dans plus de90 payspar des banques,\ninstitutions financi`eres et grands commerc ¸ants.\n1\nCHAPITRE 1. ENVIRONNEMENT DE STAGE2\nFigure 1.1: Fiche d’identit ´e HPS Maroc\n1.3",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 1
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_2",
-    "content": "ds commerc ¸ants.\n1\nCHAPITRE 1. ENVIRONNEMENT DE STAGE2\nFigure 1.1: Fiche d’identit ´e HPS Maroc\n1.3 Historique\nDepuis sa cr ´eation, HPS a toujours eu pour ambition de fournir des solutions de paiement\ninnovantes, s´ecuris´ees et adapt´ees aux besoins des institutions financi`eres.\n•1995 : Cr ´eation de HPS `a Casablanca.\n•1999 : Lancement de PowerCARD, une plateforme int ´egr´ee de gestion des cartes bancaires et\ntransactions, qui a marqu´e le d´ebut de l’expansion internationale.\n•Ann ´ees 2000-2010 : Diversification des solutions vers le paiement mobile, en ligne, et les\nservices de gestion des risques.\n•Aujourd’hui : Pr ´esence mondiale dans plus de 90 pays, avec une client`ele compos´ee de banques,\nfintechs et op´erateurs de paiement.\n1.4 Pr ´esence internationale\nAvec des bureaux im",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 2
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_3",
-    "content": "e de banques,\nfintechs et op´erateurs de paiement.\n1.4 Pr ´esence internationale\nAvec des bureaux implant ´es enAfrique, Europe, Moyen-Orient, Asie et Am ´erique du\nNord, HPS dispose d’un rayonnement international. Cette implantation strat´egique lui permet de\ncomprendre les sp´ecificit´es locales et d’offrir des solutions adapt´ees `a chaque march´e.\nCHAPITRE 1. ENVIRONNEMENT DE STAGE3\nFigure 1.2: Pr ´esence `a l’international\n1.5 Missions principales\nHPS se d ´efinit comme la technologie invisible qui permet aux paiements d’ ˆetre simples,\ntransparents et s´ecuris´es. Ses missions principales sont :\n•D ´evelopper et fournir des solutions de paiement ´electronique omnicanal `a forte valeur ajout´ee.\n•Garantir l’ex ´ecution fluide et s ´ecuris´ee des transactions, quels que soient les cana",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 3
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_4",
-    "content": "ajout´ee.\n•Garantir l’ex ´ecution fluide et s ´ecuris´ee des transactions, quels que soient les canaux ou les\nsecteurs d’activit´e.\n•Enrichir continuellement sa suite PowerCARD, d ´eploy´ee dans le monde entier\n1.6 Activit ´es principales\nFigure 1.3: Activit ´es d’HPS\nCHAPITRE 1. ENVIRONNEMENT DE STAGE4\nLes activit´es de HPS s’articulent autour de trois grands axes :\nSolutions: Gestion omnicanal des paiements ´electroniques `a travers la suite PowerCARD (en\nmode on-premise).\nProcessing: Gestion du switching national au Maroc et traitement des transactions via Po-\nwerCARD en mode SaaS.\nServices: Tests, qualification logicielle et accompagnement `a la maˆıtrise d’ouvrage dans les\nprojets de transformation digitale.\n1.7 Processus d’une transaction de paiement ´electronique\nLes principaux acte",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 4
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_5",
-    "content": "ansformation digitale.\n1.7 Processus d’une transaction de paiement ´electronique\nLes principaux acteurs intervenants lors d’une transaction de paiement ´electronique sont les\nsuivants :\n•Le porteur: il s’agit de la personne utilisant la carte bancaire.\n•Le commerc ¸ant: Il s’agit du commerc ¸ant qui accepte la carte comme moyen de paiement. Le\ncommerc ¸ant peutˆetre un commerc ¸ant classique ou virtuel (E commerce). Les DAB ou GAB\nsont aussi assimil´es `a des commerc ¸ants.\n•L’ ´emetteur: qui est l’organisme financier qui met `a la disposition de son client (le porteur) un\nmoyen de paiement (la carte) durant une p ´eriode bien d ´efinie et qui garantit le r `eglement des\nd´epenses r´ealis´ees par ladite carte dans le cadre d’une r´eglementation.\n•L’acqu ´ereur: la banque du commerc ¸ant qu",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 5
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_6",
-    "content": "s par ladite carte dans le cadre d’une r´eglementation.\n•L’acqu ´ereur: la banque du commerc ¸ant qui traite les transactions.\n•L’organisme d’interchange: qui assure l’interop ´erabilit´e entre ´emetteurs et acqu´ereurs.\nFigure 1.4: D ´eroulement d’une transaction\nCHAPITRE 1. ENVIRONNEMENT DE STAGE5\n1.8 Le produit PowerCARD\nLe progiciel PowerCARD d ´evelopp´e par HPS est une solution de paiement ´electronique\nmodulaire ´evolu´ee, hautement s ´ecuris´ee et couvrant l’int ´egralit´e de la cha ˆıne de traitement les\ntransactions financi`eres li´ees au paiement ´electronique.\nCette solution permet d’assurer le pilotage des terminaux et guichets automatiques. Elle g `ere\nnotamment les fonctions de s´ecurit´e et de v´erification, la communication avec les moyens d’acqui-\nsition (TPE, GAB, Intern",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 6
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_7",
-    "content": "e s´ecurit´e et de v´erification, la communication avec les moyens d’acqui-\nsition (TPE, GAB, Internet, etc.), la collecte et l’autorisation des transactions ainsi que la gestion\ndes commerc ¸ants et des parcs de terminaux d’acquisition, etc.\nDans le cadre du traitement back-office, PowerCARD permet la gestion de l’´emission de tout\ntype de cartes (cr ´edit, d´ebit, pr´epay´ee, fid´elit´e, etc.), la gestion de la personnalisation des cartes,\nla gestion de l’acquisition par les commerc ¸ants, la compensation (nationale et internationale), la\ngestion des litiges, le reporting, l’alimentation de la comptabilit´e des ´emetteurs et acqu´ereurs, etc.\nFigure 1.5: Modules de PowerCARD\n1.9 Organigramme de l’entreprise :\nEn 2021, le Groupe HPS a r´eorganis´e sa structure pour accompagner son expansi",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 7
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_8",
-    "content": "me de l’entreprise :\nEn 2021, le Groupe HPS a r´eorganis´e sa structure pour accompagner son expansion internatio-\nnale. Cette nouvelle organisation donne plus d’autonomie aux entit´es du Groupe tout en favorisant\nles synergies. Deux axes majeurs sont mis en avant : le soutien aux clients et le d ´eveloppement\ncommercial via l’entit ´e Market, ainsi que l’int ´egration et l’ ´evolution des solutions PowerCARD\nCHAPITRE 1. ENVIRONNEMENT DE STAGE6\npar l’entit´e Software Factory.\nLe Groupe a aussi structur´e ses activit´es de paiement en cr´eant l’entit´e Payments Services pour\ng´erer les transactions et les services associ ´es, et une entit´e d´edi´ee au Switching pour le paiement\n´electronique national. L ’entit´e Corporate Services a vu son r ˆole ´elargi, incluant la croissance\nexterne et",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 8
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_9",
-    "content": "national. L ’entit´e Corporate Services a vu son r ˆole ´elargi, incluant la croissance\nexterne et les enjeux RSE. La mise en œuvre de la strat ´egie et le suivi de la performance sont\nassur´es par le Comit´e Ex´ecutif, avec l’appui du Comit´e Transformation.\nFigure 1.6: Organigramme d’HPS\n1.10 Direction Payment Services\nCe stage se d´eroule sous la direction du d´epartement ’Payment Services’ de l’entreprise, lequel\nest responsable de la mise en œuvre et du support du mod`ele SaaS (Software as a Service) destin´e\n`a permettre aux clients de g ´erer leurs op ´erations de paiement de mani `ere flexible, s ´ecuris´ee et\n´evolutive. Le d´epartement joue un rˆole cl´e dans l’optimisation des services de paiement offerts aux\nclients gr ˆace `a l’architecture cloud et aux solutions adapt ´ees a",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 9
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_10",
-    "content": "rvices de paiement offerts aux\nclients gr ˆace `a l’architecture cloud et aux solutions adapt ´ees aux besoins sp ´ecifiques de chaque\ninstitution. Parmi les avantages de ce mod`ele on trouve :\n•R ´eduction des coˆ uts d’infrastructure : Les clients n’ont pas besoin d’investir dans des serveurs\nou des centres de donn´ees.\n•Mises `a jour automatiques : Les clients b´en´eficient des derni`eres fonctionnalit´es et am´eliorations\nsans intervention manuelle.\n•Scalabilit ´e : La plateforme peut facilement s’adapter`a la croissance des volumes de transactions.\n•S ´ecurit´e renforc ´ee : HPS met en place des mesures de s ´ecurit´e avanc ´ees pour prot ´eger les\ndonn´ees sensibles.\n1.11 Conclusion\nCe chapitre a fourni une vue d’ensemble compl`ete de l’environnement de stage, en pr´esentant\nl’organi",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 10
-    }
-  },
-  {
-    "id": "HPS.pdf_chunk_11",
-    "content": "chapitre a fourni une vue d’ensemble compl`ete de l’environnement de stage, en pr´esentant\nl’organisme d’accueil, son historique, ses missions, ses activit´es principales, et sa pr´esence inter-\nnationale. Ces ´el´ements ont permis de comprendre le cadre dans lequel s’est d ´eroul´e le stage et\nles aspects essentiels de l’entreprise HPS.",
-    "metadata": {
-      "source_document": "HPS.pdf",
-      "chunk_index": 11
-    }
-  }
 ]
