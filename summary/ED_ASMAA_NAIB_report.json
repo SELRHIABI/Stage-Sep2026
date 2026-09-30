@@ -1,0 +1,36 @@
+[
+    {
+        "file_path": "data\\ED_ASMAA_NAIB.pdf",
+        "file_name": "ED_ASMAA_NAIB.pdf",
+        "file_size_bytes": 200737,
+        "extension": ".pdf",
+        "status": "SUCCESS",
+        "text": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des Sciences de l’Ingénieur (EMSI)\nLivrable :Notebook Source (ED.ipynb)\nStatut technique :Validé sans erreur (Kernel stable)\n1 Introduction et Objectifs du Projet\nCe travail académique s’inscrit dans le cadre de l’évaluation technique des compétences en mani-\npulation de données complexes et en apprentissage supervisé. L’objectif fondamental réside dans\nla modélisation rigoureuse de la probabilité de survie des passagers du naufrage du Titanic.\nLe défi central de cette étude repose sur l’adoption absolue des bonnes pratiques de l’ingénierie\ndes données : l’isolation stricte des phases d’apprentissage pour éliminer toute fuite d’information\nindirecte (Data Leakage), et la construction d’une structure logicielle pérenne via des objets de\ntransformation modulaires.\n2 Stratégie de Partitionnement des Données\nAfin de prémunir les estimateurs contre tout biais de sur-apprentissage ou d’optimisme artificiel\nlors de l’imputation statistique, un cloisonnement étanche a été opéré à l’origine du traitement.\nLes variables purement identificatrices dépourvues de substance prédictive (PassengerId,Name,\netTicket) ont été préalablement éliminées.\nLe sous-ensemble des variables caractéristiquesX(réduit à 8 colonnes stratégiques) et le vecteur\ncibleyont été partitionnés en utilisant une approche stratifiée :\n—Ensemble d’entraînement (T rain Set) :Contient 712 lignes (représentant 80% de\nla matrice) dédiées exclusivement à l’ajustement des paramètres mathématiques et des\ntransformations.\n—Ensemble de validation (T est Set) :Contient 179 lignes (soit 20% de l’échantillon\nglobal) préservées vierges de tout contact algorithmique pour la notation finale.\n3 Architecture du Pipeline et Traitement Différencié\nEn exploitant l’API de Scikit-Learn, un formalisme basé sur le concept deColumn Transformer\na été développé, permettant l’application en parallèle de traitements mathématiques découplés\n1\nselon le type inhérent des données :\n3.1 Sous-pipeline Numérique (Variables : Pclass, Age, SibSp, Parch, Fare)\n— Les données numériques ont subi une imputation univariée via lavaleur médiane locale,\ncalculée sur le seul ensemble d’entraînement, assurant une bonne résilience vis-à-vis des\nvaleurs aberrantes de la colonneFare.\n— Suite à cela, un recentrage et une réduction d’échelle ont été appliqués à l’aide d’un\nopérateur de standardisation, forçant chaque composante à adopter une moyenneµ= 0\net une varianceσ2 = 1.\n3.2 Sous-pipeline Catégoriel (Variables : Sex, Cabin, Embarked)\n— Uneimputationparlamodalité la plus fréquente (mode)aétéordonnéepourcombler\nles valeurs manquantes sans dénaturer la sémantique de l’information.\n— Les vecteurs nominaux résultants ont été projetés dans un espace vectoriel binaire à l’aide\nd’un encodage One-Hot (OneHotEncoder).\n— L’optiondegestiondesmodalitésinconnuesaétéparamétréepourignorerdynamiquement\ntoute entrée inédite survenant au cours de la phase de test, protégeant le système contre\nles exceptions d’exécution.\n4 Modélisation Linéaire et Métriques de Performance\nConformément à la feuille de route visant la robustesse et la sobriété algorithmique, le modèle de\nRégression Logistiquea été retenu et encapsulé à la suite du processeur géométrique. Après\nconvergence de la fonction de coût, les résultats sur l’échantillon indépendant de test indiquent\nuneexcellentecapacitéprédictiveavecuneexactitude globale (Accuracy Score) de 82.12%.\nLe comportement détaillé de l’estimateur est formalisé à travers le tableau récapitulatif ci-\ndessous :\nTable 1– Mesures d’évaluation du modèle de Régression Logistique\nClasse Prédite (Statut) Précision Rappel Score F1 Support Échantillon\nClasse 0 (Non-Survivants) 0.84 0.88 0.86 110 passagers\nClasse 1 (Survivants) 0.79 0.72 0.76 69 passagers\nMoyenne Pondérée 0.82 0.82 0.82 179 passagers\nL’analyse croisée démontre que le modèle offre une excellente fiabilité sur la prédiction de la\nclasse majoritaire (non-survie) avec un score F1 culminant à 0.86[cite : 45]. Pour les survivants,\nla précision se maintient à un niveau tout à fait robuste de 79%, minimisant le taux de faux\npositifs.\n5 Conclusion\nEn conclusion, l’intégralité des contraintes de l’étude a été satisfaite de manière rigoureuse. L’im-\nplémentation logicielle au sein de l’environnement Jupyter a démontré qu’en dépit des contraintes\n2\ninitiales d’affichage machine, le recours à un formalisme de pipeline strict préserve à la fois l’in-\ntégrité scientifique des métriques et la propreté du code source, jetant les bases solides d’une\nméthodologie d’analyse transférable à des problématiques de plus grande envergure.\n3",
+        "preview": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des S",
+        "total_chars": 4769,
+        "pages_count": 3,
+        "pages_detail": [
+            {
+                "page_number": 1,
+                "char_count": 2095,
+                "preview": "Rapport d’Évaluation : Modélisation Prédictive\nArchitecture Pipeline End-to-End sur le Dataset Titanic\nAsmaa Naib\nMai 2026\nFilière :Ingénierie IA & Data (4ème Année)\nInstitution :École Marocaine des S"
+            },
+            {
+                "page_number": 2,
+                "char_count": 2389,
+                "preview": "selon le type inhérent des données :\n3.1 Sous-pipeline Numérique (Variables : Pclass, Age, SibSp, Parch, Fare)\n— Les données numériques ont subi une imputation univariée via lavaleur médiane locale,\nc"
+            },
+            {
+                "page_number": 3,
+                "char_count": 283,
+                "preview": "initiales d’affichage machine, le recours à un formalisme de pipeline strict préserve à la fois l’in-\ntégrité scientifique des métriques et la propreté du code source, jetant les bases solides d’une\nm"
+            }
+        ],
+        "quality_score": 96.14,
+        "quality_label": "HIGH_QUALITY",
+        "error_message": null,
+        "metadata": {
+            "pdf_producer": "pdfTeX-1.40.27"
+        }
+    }
+]
